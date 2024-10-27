@@ -84,7 +84,7 @@ WSGI_APPLICATION = "gestion_productos.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Manager',  # Nombre de la base de datos
+        'NAME': 'postgres',  # Nombre de la base de datos
         'USER': 'postgres',                  # Usuario de PostgreSQL
         'PASSWORD': 'postgres',          # Contraseña del usuario
         'HOST': 'db',                    # Nombre del servicio en docker-compose
