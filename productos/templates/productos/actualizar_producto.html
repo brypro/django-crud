@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Actualizar Producto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load bootstrap4 %}
 </head>
-<body>
-    <h1>Actualizar Producto</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Cambios</button>
-    </form>
-    <a href="{% url 'listar_productos' %}">Volver a la Lista</a>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Actualizar Producto</h1>
+        <div class="card mt-4 shadow">
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-success btn-block mt-3">Guardar Cambios</button>
+                </form>
+                <a href="{% url 'listar_productos' %}" class="btn btn-link mt-3">Volver a la Lista</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
