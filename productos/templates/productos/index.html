@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Menú Principal</title>
-    {% load bootstrap4 %}
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Menú Principal</h1>
-        <div class="d-flex justify-content-center">
-            <a href="{% url 'crear_producto' %}" class="btn btn-primary mr-2">Crear Producto</a>
-            <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Listar Productos</a>
-        </div>
+{% extends 'productos/base.html' %}
+
+{% block title %}Menú Principal{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Menú Principal</h1>
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'crear_producto' %}" class="btn btn-primary mr-2">Crear Producto</a>
+        <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Listar Productos</a>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

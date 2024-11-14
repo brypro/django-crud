@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load bootstrap4 %}
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Registrarse</h1>
+        <div class="card mt-4 shadow">
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Registrarse</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="{% url 'login' %}" class="btn btn-link">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
