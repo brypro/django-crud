@@ -9,11 +9,8 @@
 		"ghcr.io/devcontainers/features/conda:1": {},
 		"ghcr.io/devcontainers/features/git-lfs:1": {}
 	},
-	"remoteEnv": {
-		"SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
-	},
 	"mounts": [
-		"source=/run/host-services/ssh-auth.sock,target=/run/host-services/ssh-auth.sock,type=bind"
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
 	"postCreateCommand": "pip install -r requirements.txt"
 	// Features to add to the dev container. More info: https://containers.dev/features.
