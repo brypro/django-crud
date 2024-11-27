@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.views import LoginView, LogoutView
 
 # Create your views here.
 def index(request):
