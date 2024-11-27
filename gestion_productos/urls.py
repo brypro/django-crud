@@ -16,9 +16,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from productos import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('productos/', include('productos.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('admin/', admin.site.urls),
+    path('productos/', include('productos.urls')),  # Incluye las rutas de la app productos
+    path('', views.index, name='index'),
+    path('auth/', include('django.contrib.auth.urls')),  # Agrega las vistas de autenticación predeterminadas
+    path('register/', views.registro, name='register'),  # Ruta personalizada para el registro
 ]
