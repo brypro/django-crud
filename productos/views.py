@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
-from .forms import ProductoForm
+from .forms import ProductoForm, CustomUserCreationForm
+from django.contrib.auth import login
 
 # Create your views here.
 def index(request):
@@ -38,3 +39,14 @@ def eliminar_producto(request, id):
         producto.delete()
         return redirect('listar_productos')
     return render(request, 'productos/eliminar_producto.html', {'producto': producto})
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
